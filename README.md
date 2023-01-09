@@ -1,2 +1,4 @@
 # pyMinColab
-pyMin Colab version 2023
+pyMin, versione Colab 2023
+
+
