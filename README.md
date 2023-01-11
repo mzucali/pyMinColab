@@ -1,6 +1,8 @@
 # pyMinColab
 pyMin, versione Colab 2023
 
+open useIT.md file for use it
+
 by Michele Zucali, Department of Earth Sciences - University of Milan - Italy
 
 https://github.com/mzucali/pyMinColab
