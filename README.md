@@ -31,3 +31,6 @@ HOW TO RUN your INPUT File
 3) it will start the computation with a LONG list of outputs as it finished a folder mydata will be created with your input file, the output file (inputfilename_OUT)
 
 4) you can download the output
+
+
+## 11 January 2023
