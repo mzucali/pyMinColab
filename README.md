@@ -9,6 +9,15 @@ https://github.com/mzucali/pyMinColab
 
 This is a basic code to re-calculate mineral structural formula for rock-forming mineral starting from SEM-EMPA data, Wt% of oxides (e.g., SiO2, Al2O3, MgO, etc.).
 
+*********************
+HOW TO USE IT
+
+1) Select the pyMinColab0X.ipynb file
+2) Select the Open in Colab banner
+3) you will be re-directed to colab YOU need a google account
+4) follow the instructions
+
+*********************
 INPUT FILE PREPARATION
 1) INPUT file format is preferibly XLSX but XLS, TAB, CSV, TXT are also accepted.
 
