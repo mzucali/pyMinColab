@@ -14,8 +14,8 @@ HOW TO USE IT
 
 1) Select the pyMinColab0X.ipynb file
 2) Select the Open in Colab banner
-3) you will be re-directed to colab YOU need a google account
-4) follow the instructions
+3) You will be re-directed to Google Colab (you need a google account) => works better in Chrome
+4) There, follow the instructions
 
 *********************
 INPUT FILE PREPARATION
