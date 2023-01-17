@@ -8,7 +8,7 @@ from collections import OrderedDict
 from copy import deepcopy
 
 import scipy.constants
-#import mineral_constants
+
 from mincalclib.mineral_constants import molecular_weights, oxydes_by_formula, \
     cations_by_formula, oxides_order, cations_order, mineral_oxigens, cation_labels
 from numpy import math
@@ -448,7 +448,9 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 sps = single['Mn'] / (single['Fe2'] + single['Mg'] + single['Ca'] + single['Mn'])
                 XFe = single['Fe2'] / (single['Fe2'] + single['Mg'])
                 XMg = single['Mg'] / (single['Fe2'] + single['Mg'])
+                XMn = single['Mn'] / (single['Fe2'] + single['Mg']+single['Mn'])
                 XCa = single['Ca'] / (single['Fe2'] + single['Mg'] + single['Ca'])
+                Al_T = single['Al'] = 0
                 '''
                 Fe3+ = 2*X*(1-T/S)
                 X=>oxigens in formula
@@ -469,13 +471,20 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 single.update({'sps': round(sps, 3)})
                 single.update({'XFe': round(XFe, 3)})
                 single.update({'XMg': round(XMg, 3)})
+                single.update({'XCa': round(XCa, 3)})
 
                 print("every mineral analysis: ", single, "")
                 TempK = 873  # 600 Celsius
                 R = scipy.constants.R
-                a = 0
-                b = 0
-                c = 0
+                a = 0.337*(XFe**2)-24.976*(XMg**2)+9.67*(XCa**2)-5.07(XMn**2)+1.4335*XFe*XMg\
+                    -20.014*XFe*XCa-4.6665*XFe*XMn-16.1735*XMg*XCa-16.173*XMg*XMn-5.4735*XCa*XMn
+
+                b = 0.04*(XFe**2)+0.102*(XMg**2)-0.135*(XCa**2)-5.19(XMn**2)-0.1515*XFe*XMg\
+                    +0.19*XFe*XCa+0.1165*XFe*XMn+0.3315*XMg*XCa+0.137*XMg*XMn+0.0035*XCa*XMn
+
+                c = -1304.0*(XFe**2)+71786*(XCa**2)-19932.0*(XCa**2)+1002.0*(XMn**2)\
+                    +8082.5*XFe*XMg+42472*XFe*XCa+9122*XFe*XMn+20191.5*XMg*XCa+42769.5*XMg*XMn+28282*XCa*XMn
+
                 P_grt = (-8904.5+24.542*TempK+0.45*R*TempK*math.log(XCa/XFe)+0.15*TempK*a+0.15*c)/(1-0.15*b)/1000   ## Minerals 2019, 9(9), 540; https://doi.org/10.3390/min9090540
                 single.update({'P_grt(kbar@600°C)-doi.org/10.3390/min9090540': round(P_grt, 3)})
 
