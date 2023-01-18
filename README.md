@@ -1,4 +1,5 @@
-# pyMinColab #11 January 2023 #The JacopoJapo Version
+# pyMinColab 
+%11 January 2023 %The JacopoJapo Version
 
 pyMin, versione Colab 2023
 
