@@ -1,4 +1,5 @@
-# pyMinColab
+# pyMinColab #11 January 2023 #The JacopoJapo Version
+
 pyMin, versione Colab 2023
 
 by Michele Zucali, Department of Earth Sciences - University of Milan - Italy
