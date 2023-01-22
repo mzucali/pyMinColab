@@ -446,11 +446,77 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 py = single['Mg'] / (single['Fe2'] + single['Mg'] + single['Ca'] + single['Mn'])
                 gr = single['Ca'] / (single['Fe2'] + single['Mg'] + single['Ca'] + single['Mn'])
                 sps = single['Mn'] / (single['Fe2'] + single['Mg'] + single['Ca'] + single['Mn'])
-                XFe = single['Fe2'] / (single['Fe2'] + single['Mg'])
-                XMg = single['Mg'] / (single['Fe2'] + single['Mg'])
-                XMn = single['Mn'] / (single['Fe2'] + single['Mg']+single['Mn'])
-                XCa = single['Ca'] / (single['Fe2'] + single['Mg'] + single['Ca'])
-                Al_T = single['Al'] = 0
+                XFe = single['Fe2'] / (single['Fe2'] + single['Mg']+single['Mn']+single['Ca'])
+                XMg = single['Mg'] / (single['Fe2'] + single['Mg']+single['Mn']+single['Ca'])
+                XMn = single['Mn'] / (single['Fe2'] + single['Mg']+single['Mn']+single['Ca'])
+                XCa = single['Ca'] / (single['Fe2'] + single['Mg'] + single['Mn']+single['Ca'])
+
+                # T SITE
+                if single['Si']<3:
+                    Si_T = single['Si']
+                else:
+                    Si_T = 3
+
+                if 3-single['Si']>0:
+                    if 3-single['Si'] > single['Al']:
+                        Al_T = single['Al']
+                    else:
+                        Al_T = 3 - Si_T
+                    pass
+                else:
+                    Al_T = 0
+
+
+                Sum_T = Si_T + Al_T
+
+                # Y SITE
+                if single['Si']<3:
+                    Si_Y = 0
+                else:
+                    Si_Y = single['Si']-3
+
+                Al_Y = single['Al'] - Al_T
+                Ti_Y = single['Ti']
+                Cr_Y = single['Cr']
+
+                if (Si_Y + Al_Y + Ti_Y + Cr_Y) < 2 and (2-(Si_Y + Al_Y + Ti_Y + Cr_Y)) > single['Mg']:
+                    Mg_Y = single['Mg']
+                else:
+                    Mg_Y = 2-(Si_Y + Al_Y + Ti_Y + Cr_Y)
+
+                if (Si_Y + Al_Y + Ti_Y + Cr_Y + Mg_Y) < 2 and (2-(Si_Y + Al_Y + Ti_Y + Cr_Y + Mg_Y)) > single['Fe2']:
+                    Fe2_Y = single['Fe2']
+                else:
+                    Fe2_Y = 2-(Si_Y + Al_Y + Ti_Y + Cr_Y + Mg_Y)
+
+                if (Si_Y + Al_Y + Ti_Y + Cr_Y + Mg_Y + Fe2_Y) < 2 and 2-(Si_Y + Al_Y + Ti_Y + Cr_Y + Mg_Y + Fe2_Y) > single['Mn']:
+                    Mn_Y = single['Mn']
+                else:
+                    Mn_Y = 2-(Si_Y + Al_Y + Ti_Y + Cr_Y + Mg_Y + Fe2_Y)
+
+                Sum_Y = Si_Y + Al_Y + Ti_Y + Cr_Y + Fe2_Y + Mg_Y + Mn_Y
+
+                # X SITE
+                if 'Y' in single:
+                    Y_X = single['Y']
+                Mg_X = single['Mg'] - Mg_Y
+                Fe2_X = single['Fe2'] - Fe2_Y
+                Mn_X = single['Mn'] - Mn_Y
+                Ca_X = single['Ca']
+                Na_X = single['Na']
+                try:
+                    Y_X
+                except NameError:
+                    print("no Y")
+                    Sum_X = Mg_X + Fe2_X + Mn_X + Ca_X + Na_X
+                else:
+                    Sum_X = Y_X + Mg_X + Fe2_X + Mn_X + Ca_X + Na_X
+                #if Y_X:
+                #    Sum_X = Y_X + Mg_X + Fe2_X + Mn_X + Ca_X + Na_X
+                #else:
+                #    Sum_X = Mg_X + Fe2_X + Mn_X + Ca_X + Na_X
+
+
                 '''
                 Fe3+ = 2*X*(1-T/S)
                 X=>oxigens in formula
@@ -465,30 +531,57 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                     Fe3 = 2 * 12 * (1 - 8 / single['SUMcat'])
                     single.update({'Fe3': round(Fe3, 3)})
                     pass
+
                 single.update({'alm': round(alm, 3)})
                 single.update({'py': round(py, 3)})
                 single.update({'gr': round(gr, 3)})
                 single.update({'sps': round(sps, 3)})
                 single.update({'XFe': round(XFe, 3)})
                 single.update({'XMg': round(XMg, 3)})
+                single.update({'XMn': round(XMn, 3)})
                 single.update({'XCa': round(XCa, 3)})
+                single.update({'Si_T': round(Si_T,3)})
+                single.update({'Al_T': round(Al_T,3)})
+                single.update({'Sum_T': round(Sum_T, 3)})
+                single.update({'Si_Y': round(Si_Y,3)})
+                single.update({'Al_Y': round(Al_Y,3)})
+                single.update({'Ti_Y': round(Ti_Y, 3)})
+                single.update({'Cr_Y': round(Cr_Y, 3)})
+                single.update({'Mg_Y': round(Mg_Y, 3)})
+                single.update({'Fe2_Y': round(Fe2_Y, 3)})
+                single.update({'Mn_Y': round(Mn_Y, 3)})
+                single.update({'Sum_Y': round(Sum_Y, 3)})
+                try:
+                    Y_X
+                except NameError:
+                    print("no Y")
+                else:
+                    single.update({'Y_X': round(Y_X,3)})
+
+                single.update({'Mg_X': round(Mg_X, 3)})
+                single.update({'Fe2_X': round(Fe2_X, 3)})
+                single.update({'Mn_X': round(Mn_X, 3)})
+                single.update({'Ca_X': round(Ca_X, 3)})
+                single.update({'Na_X': round(Na_X, 3)})
+                single.update({'Sum_X': round(Sum_X, 3)})
 
                 print("every mineral analysis: ", single, "")
-                TempK = 873  # 600 Celsius
+                TempK = 823  # 550 Celsius
                 R = scipy.constants.R
-                a = 0.337*(XFe**2)-24.976*(XMg**2)+9.67*(XCa**2)-5.07(XMn**2)+1.4335*XFe*XMg\
+                Grt_a = 0.337*(XFe**2)-24.976*(XMg**2)+9.67*(XCa**2)-5.07*(XMn**2)+1.4335*XFe*XMg\
                     -20.014*XFe*XCa-4.6665*XFe*XMn-16.1735*XMg*XCa-16.173*XMg*XMn-5.4735*XCa*XMn
-
-                b = 0.04*(XFe**2)+0.102*(XMg**2)-0.135*(XCa**2)-5.19(XMn**2)-0.1515*XFe*XMg\
+                #print("Grt_a = ", Grt_a)
+                Grt_b = 0.04*(XFe**2)+0.102*(XMg**2)-0.135*(XCa**2)-5.19*(XMn**2)-0.1515*XFe*XMg\
                     +0.19*XFe*XCa+0.1165*XFe*XMn+0.3315*XMg*XCa+0.137*XMg*XMn+0.0035*XCa*XMn
-
-                c = -1304.0*(XFe**2)+71786*(XCa**2)-19932.0*(XCa**2)+1002.0*(XMn**2)\
+                #print("Grt_b = ", Grt_b)
+                Grt_c = -1304.0*(XFe**2)+71786*(XCa**2)-19932.0*(XCa**2)+1002.0*(XMn**2)\
                     +8082.5*XFe*XMg+42472*XFe*XCa+9122*XFe*XMn+20191.5*XMg*XCa+42769.5*XMg*XMn+28282*XCa*XMn
-
-                P_grt = (-8904.5+24.542*TempK+0.45*R*TempK*math.log(XCa/XFe)+0.15*TempK*a+0.15*c)/(1-0.15*b)/1000   ## Minerals 2019, 9(9), 540; https://doi.org/10.3390/min9090540
-                single.update({'P_grt(kbar@600°C)-doi.org/10.3390/min9090540': round(P_grt, 3)})
-
-
+                #print("Grt_c = ", Grt_c)
+                P_grt = (-8904.5+24.542*TempK+0.45*R*TempK*math.log(XCa/XFe)+0.15*TempK*Grt_a+0.15*Grt_c)/(1-0.15*Grt_b)/1000   ## Minerals 2019, 9(9), 540; https://doi.org/10.3390/min9090540
+                single.update({'P_grt(kbar@550°C)-doi.org/10.3390/min9090540': round(P_grt, 3)})
+                single.update({'Grt_a': round(Grt_a,5)})
+                single.update({'Grt_b': round(Grt_b, 5)})
+                single.update({'Grt_c': round(Grt_c, 5)})
 
         elif mine == 'amph':
             # AMPH#

@@ -22,7 +22,8 @@ molecular_weights = {'SiO2' : 60.08,
                      'SrO' : 103.62,
                      'NiO' : 74.7094,
                      'B2O3': 69.6202,
-                     'V2O3' : 149.8812
+                     'V2O3' : 149.8812,
+                     'Y2O3' : 225.81
                      }
 
 
@@ -43,7 +44,8 @@ oxydes_by_formula = {'SiO2' : 2,
                      'SrO' : 1,
                      'NiO' : 1,
                      'B2O3':3,
-                    'V2O3' : 3
+                    'V2O3' : 3,
+                     'Y2O3' : 3
                      }
 
 cations_by_formula = {'SiO2' : 0.5,
@@ -63,7 +65,8 @@ cations_by_formula = {'SiO2' : 0.5,
                      'SrO' : 1.0,
                      'NiO' : 1.0,
                      'B2O3': 0.666667,
-                    'V2O3' : 0.666667
+                    'V2O3' : 0.666667,
+                      'Y2O3' : 0.666667
                     }
 
 #!/usr/bin/env python
