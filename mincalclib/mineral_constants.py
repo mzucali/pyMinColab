@@ -1,11 +1,14 @@
 # http://www.lenntech.com/calculators/molecular/molecular-weight-calculator.htm
 #
 
+# AGGIORNAMENTO 31 Jan 2023
+
+
 #phonebook = {'Andrew Parson':8806336, \
 #'Emily Everett':6784346, 'Peter Power':7658344, \
 #'Lewis Lame':1122345}
 
-molecular_weights = {'SiO2' : 60.08,
+dict_molecular_weights = {'SiO2' : 60.08,
                      'Al2O3' : 101.96,
                      'FeO' : 71.85,
                      'Na2O' : 61.98,
@@ -16,18 +19,18 @@ molecular_weights = {'SiO2' : 60.08,
                      'MnO' : 70.94,
                      'Mn2O3' : 157.87,
                      'CaO' : 56.08,
-                     'Cr2O3' : 151.99,
-                     'ZnO' : 81.39,
-                     'P2O5' : 141.94,
-                     'SrO' : 103.62,
-                     'NiO' : 74.7094,
-                     'B2O3': 69.6202,
-                     'V2O3' : 149.8812,
-                     'Y2O3' : 225.81
-                     }
+                          'Cr2O3' : 151.99,
+                          'ZnO' : 81.39,
+                          'P2O5' : 141.94,
+                          'SrO' : 103.62,
+                          'NiO' : 74.7094,
+                          'B2O3': 69.6202,
+                          'V2O3' : 149.8812,
+                          'Y2O3' : 225.81
+                          }
 
 
-oxydes_by_formula = {'SiO2' : 2,
+dict_oxydes_by_formula = {'SiO2' : 2,
                      'Al2O3': 3 ,
                      'FeO' : 1,
                      'Na2O' : 1,
@@ -38,17 +41,17 @@ oxydes_by_formula = {'SiO2' : 2,
                      'MnO' : 1,
                      'Mn2O3' : 3,
                      'CaO' : 1,
-                     'Cr2O3' : 3,
-                     'ZnO' : 1,
-                     'P2O5' : 5,
-                     'SrO' : 1,
-                     'NiO' : 1,
-                     'B2O3':3,
-                    'V2O3' : 3,
-                     'Y2O3' : 3
-                     }
+                          'Cr2O3' : 3,
+                          'ZnO' : 1,
+                          'P2O5' : 5,
+                          'SrO' : 1,
+                          'NiO' : 1,
+                          'B2O3':3,
+                          'V2O3' : 3,
+                          'Y2O3' : 3
+                          }
 
-cations_by_formula = {'SiO2' : 0.5,
+dict_cations_by_formula = {'SiO2' : 0.5,
                      'Al2O3': 0.666667 ,
                      'FeO' : 1.0,
                      'Na2O' : 2.0,
@@ -59,22 +62,22 @@ cations_by_formula = {'SiO2' : 0.5,
                      'MnO' : 1.0,
                      'Mn2O3' : 0.666667,
                      'CaO' : 1.0,
-                     'Cr2O3' : 0.666667,
-                     'ZnO' : 1.0,
-                     'P2O5' : 0.4,
-                     'SrO' : 1.0,
-                     'NiO' : 1.0,
-                     'B2O3': 0.666667,
-                    'V2O3' : 0.666667,
-                      'Y2O3' : 0.666667
-                    }
+                           'Cr2O3' : 0.666667,
+                           'ZnO' : 1.0,
+                           'P2O5' : 0.4,
+                           'SrO' : 1.0,
+                           'NiO' : 1.0,
+                           'B2O3': 0.666667,
+                           'V2O3' : 0.666667,
+                           'Y2O3' : 0.666667
+                           }
 
 #!/usr/bin/env python
 #
 #  chemweight.py
 #
 #import re
-mass = {
+dict_mass = {
   "H":	1.00794,
   "He":	4.002602,
   "Li":	6.941,
@@ -186,7 +189,7 @@ mass = {
   "Mt":	266,
 }
 
-mineral_oxigens = {
+dict_mineral_oxigens = {
 
     "amph": 23,
     "amph23":23,
@@ -266,7 +269,7 @@ mineral_oxigens = {
 
 }
 
-mineral_labels = {
+dict_mineral_labels = {
 #amphibole
     'am' : 'amph', "AMP": 'amph',"amp": 'amph',
     "Amp" : 'amph', "a" : 'amph', "amph": 'amph',
@@ -534,7 +537,7 @@ mineral_labels = {
 
 
 
-cation_labels={'FeO':'Fe2',
+dict_cation_labels={'FeO': 'Fe2',
                'Fe2O3':'Fe3',
                'MgO':'Mg',
                'SiO2':'Si',
@@ -545,30 +548,28 @@ cation_labels={'FeO':'Fe2',
                'K2O': 'K',
                'MnO': 'Mn',
                'Th2O3':'Th',
-               'PbO':'Pb',
-               'UO2':'U',
-               'Cr2O3':'Cr',
-               'ZnO':'Zn',
-               'NiO':'Ni',
-               'P2O5':'P',
-               'La2O3':'La',
-               'Y2O3':'Y',
-               'Ce2O3':'Ce',
-               'Pr2O3':'Pr',
-               'As2O5':'As',
-               'Dy2O5':'Dy',
-               'Gd2O3':'Gd'}
+                    'PbO':'Pb',
+                    'UO2':'U',
+                    'Cr2O3':'Cr',
+                    'ZnO':'Zn',
+                    'NiO':'Ni',
+                    'P2O5':'P',
+                    'La2O3':'La',
+                    'Y2O3':'Y',
+                    'Ce2O3':'Ce',
+                    'Pr2O3':'Pr',
+                    'As2O5':'As',
+                    'Dy2O5':'Dy',
+                    'Gd2O3':'Gd'}
 
 
-cations_order = ['Si', 'Ti', 'Al','AlVI','AlIV','Fe3','Fe2','Mn','Mg','Ca','Na','K',
+list_cations_order = ['Si', 'Ti', 'Al', 'AlVI', 'AlIV', 'Fe3', 'Fe2', 'Mn', 'Mg', 'Ca', 'Na', 'K',
                 'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','SUMcat']
 
 
 
-oxides_order = ['Sample','mineral','SiO2', 'TiO2', 'Al2O3','Fe2O3','FeO','MnO','MgO','CaO','Na2O','K2O',
+list_oxides_order = ['Sample', 'mineral', 'SiO2', 'TiO2', 'Al2O3', 'Fe2O3', 'FeO', 'MnO', 'MgO', 'CaO', 'Na2O', 'K2O',
                 'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','OxSum', 'OX'] 
-
-
 
 
 
