@@ -17,6 +17,9 @@ import openpyxl
 from mincalclib import mineral_constants
 # from openpyxl import worksheet, Workbook
 import pandas as pd
+# pip install pandas-path
+from pandas_path import path
+# Use the .path accessor to get just the filename rather than the full path
 # import xlwt
 # import xlsxwriter
 from openpyxl import load_workbook, Workbook
@@ -33,8 +36,10 @@ col_oxides = 0
 # workbook = xlsxwriter.Workbook()
 
 def check_filein_if_xlsx(filein):
-    fin = str(filein)
-    print("fin: ", fin)
+    #test1 = filein.path
+    #print("str(filein) :",test1)
+    print("filelin: ", filein)
+    fin = filein
     filename1, file_extension1 = os.path.splitext(fin)
     print("ininoutfile fin: ", fin)
     print("ininoutfile filename1: ", filename1)
@@ -111,83 +116,81 @@ def check_filein_if_xlsx(filein):
     print("tell me location and type of fin: ", fin, type(fin))
     return fin
 
+# questo modulo legge il file XLSX di input dove si trova SAMPLE, MINERAL e UN CERTO NUMERO DI OSSIDI (WT%)
+# RESTITUISCE data_input_Ox_dict_list <= un dict con 'Sample', XXX; 'minerl',grt; SiO2, 12.34; etc
 
 def readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(file_Input_XLSX):
-    data_input_Ox_dict_list = []
+    list_data_input_Ox_dict = [] # lista di analisi in dict per ogni analisi
     fin = file_Input_XLSX
-    sfin = str(file_Input_XLSX)
-    fin = check_filein_if_xlsx(sfin)  # CHECK CSV, TXT, TAB, XLS (false)
+    fin = check_filein_if_xlsx(fin)  # CHECK CSV, TXT, TAB, XLS (false)
     # wb = open_workbook(fin)
     # wb = pd.read_excel(fin, engine='openpyxl') ## 22 dec 22 - prova NON usare xlrd (open_workbook) ma read_excel di openpyxl
-    print("inoutfile line 100")
-    print(fin)
+    #print("inoutfile line 100")
+    print("file in in inoutfile: ", fin)
     wb = openpyxl.load_workbook(fin)
     print(wb)
-    s = wb.active
-    #  for s in wb.worksheets:  ##worksheets() iterate
-    print('\n\nSheet: {0}, columns = {1}, rows = {2} '.format(s.title, s.max_column, s.max_row))
+    active_sheet = wb.active
+    #  for active_sheet in wb.worksheets:  ##worksheets() iterate
+    print('\n\nSheet: {0}, columns = {1}, rows = {2} '.format(active_sheet.title, active_sheet.max_column, active_sheet.max_row))
     for riga in range(1):
-
         headers = []  # global headers
-        for colo in range(s.max_column):
-            print("line 99: ", riga + 1, colo + 1)
-            headers.append(str(s.cell(riga + 1, colo + 1).value).strip())
-        # print ('headers read in Sheet: ', s.name)
+        for colo in range(active_sheet.max_column):
+#            print("line 99**: ", riga + 1, colo + 1)
+            headers.append(str(active_sheet.cell(riga + 1, colo + 1).value).strip())
+        #    headers.append(str(active_sheet.cell(riga + 1, colo + 1).value.upper()).strip()) # così magari trasformo tutti gli headers prima di andare avanti
+        # print ('headers read in Sheet: ', active_sheet.name)
         # print("SAMPLE: ",headers[0])
-        # headers[0] = 'sample'
-        headers[1] = 'mineral'
+        headers[0] = 'Sample' # <= check 2/2/23
+        headers[1] = 'mineral' # <= check 2/2/23
         # print("SAMPLE: ",headers[0])
         # print("MINERAL ", headers[1])
+        print("headers")
         print('\t'.join(i for i in headers))
 
     print()
 
     print("LIST ALL ANALYSES and STORE in dict_list")
-    #  for s in wb.worksheets:
-    print('\nSheet:', s.title)
+    #  for active_sheet in wb.worksheets:
+    print('\nSheet:', active_sheet.title)
     print()
-    for rows in range(1, s.max_row):
+    for rows in range(1, active_sheet.max_row):
         values = []
-        for cols in range(s.max_column):
-            values.append(s.cell(rows + 1, cols + 1).value)
+        for cols in range(active_sheet.max_column):
+            values.append(active_sheet.cell(rows + 1, cols + 1).value)
         print("Analysis = %s" % rows)
         print("Headers:\t" + '\t'.join([str(i) for i in headers]))
         print("Values:\t" + '\t'.join([str(i) for i in values]))
-        # print ("\n")
-
-        data_input_Ox_dict = OrderedDict(zip(headers, values))
-        print("INOUTFILE data_input_Ox_dict = ", data_input_Ox_dict)
-        #             for k,v in data_input_Ox_dict.items():
+        # dict_data_input_OX 
+        dict_data_input_Ox = OrderedDict(zip(headers, values))
+        print("INOUTFILE dict_data_input_Ox = ", dict_data_input_Ox)
+        #             for k,v in dict_data_input_Ox.items():
         #                 print("k e v: ", k, v)
         data_input_Ox_dict2 = OrderedDict(zip(headers, values))
-        data_input_Ox_dict2 = changeMineralLabels(data_input_Ox_dict)
-        print("INOUTFILE data_input_Ox_dict CHANGED MIN LABEL= ", data_input_Ox_dict2)
-
-        # data_input_Ox_dict_list = []
-        # print("from READEXCEL2 added analysis = ",data_input_Ox_dict)
+        data_input_Ox_dict2 = changeMineralLabels(dict_data_input_Ox)
+        print("INOUTFILE dict_data_input_Ox CHANGED MIN LABEL= ", data_input_Ox_dict2)
+        # list_data_input_Ox_dict = []
+        # print("from READEXCEL2 added analysis = ",dict_data_input_Ox)
         # print()
-        data_input_Ox_dict_list.append(data_input_Ox_dict2)
+        list_data_input_Ox_dict.append(data_input_Ox_dict2)
 
     print()
-
-    # wb.release_resources() ## xlrd
 
     ## SET mineral to 'mineral' and sample to 'Sample'
     ## CHECK MINERAL LABEL and change to unique LABEL=>>DONE
     ## 
 
-    print("INOUTdata_input_Ox_dict_list..", data_input_Ox_dict_list)
+    print("INOUTdata_input_Ox_dict_list..", list_data_input_Ox_dict)
 
-    return data_input_Ox_dict_list
+    return list_data_input_Ox_dict
 
 
 def changeMineralLabels(cats_dict):
-    if cats_dict['mineral'] in mineral_constants.mineral_labels.keys():
+    if cats_dict['mineral'] in mineral_constants.dict_mineral_labels.keys():
         v = cats_dict['mineral']
         print("changeALLKeys found: ", v)
 
-        print(mineral_constants.mineral_labels[v])
-        new_value = mineral_constants.mineral_labels[v]
+        print(mineral_constants.dict_mineral_labels[v])
+        new_value = mineral_constants.dict_mineral_labels[v]
         cats_dict['mineral'] = new_value
 
     return cats_dict
@@ -203,7 +206,7 @@ def write_out_base_data(recalc_data_oxides_cats_OX__list, inputfile_path):
     global wsheet
 
     print("FILE INPUT ..." + inputfile_path)
-    file_output = removeEXT(inputfile_path) + '_OUT.xlsx'
+    file_output = removeEXT(inputfile_path) + '_RECALC.xlsx'
     print("FILE OUTPUT ..." + file_output)
     print("WRITING HEADERS to FileOUT " + str(file_output))
 
