@@ -385,12 +385,12 @@ def oxygen_proportion(mineral_input_dict, mol_by_oxygens_dict, mol_prop_sum):
     # print ("searching for mineral: " + mineral_input_dict['Mineral'].casefold())
     # labels = labels
     for k, v in dict_mineral_oxigens.items():
+        k.lower()
         #print("k.lowerAAA: ", k.lower())
     global oxygens
     for k, v in dict_mineral_oxigens.items():
         if k.lower() == mineral_input_dict['mineral'.casefold()].lower():
          #   print(mineral_input_dict['mineral'.casefold()] + " found, it has %s oxygens" % str(v))
-
             oxygens = v
 
     # print ("OXYGENI = ",oxygeni)
