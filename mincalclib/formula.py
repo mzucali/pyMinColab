@@ -587,7 +587,7 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 try:
                     Y_X
                 except NameError:
-                    print("no Y")
+                    #print("no Y")
                     Sum_X = Mg_X + Fe2_X + Mn_X + Ca_X + Na_X
                 else:
                     Sum_X = Y_X + Mg_X + Fe2_X + Mn_X + Ca_X + Na_X
@@ -634,7 +634,7 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 try:
                     Y_X
                 except NameError:
-                    print("no Y")
+                    #print("no Y")
                 else:
                     single.update({'Y_X': round(Y_X,3)})
 
