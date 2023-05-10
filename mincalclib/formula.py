@@ -111,7 +111,7 @@ def sortDictOxides(dict_unsorted_Ox):
         if k in dict_unsorted_Ox.keys(): # se quel valore è in
             item = [(k, dict_unsorted_Ox[k])]  # for k in order]
             #print("items oxide:", item)
-        elif k not in dict_unsorted_Ox.keys():
+        #elif k not in dict_unsorted_Ox.keys():
             #print("missing value: ", k)
         dict_sorted_Ox.update(item)
     return dict_sorted_Ox
