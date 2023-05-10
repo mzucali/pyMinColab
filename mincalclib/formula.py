@@ -323,7 +323,7 @@ def print_mineral_keys(mineral_dict):
 
 def print_mineral_key_value(dicto):
     for k, v in dicto.items():
-        #print("{}".format(k), " = {}".format(v))
+        print("{}".format(k), " = {}".format(v))
 
 
 def mol_proportion(wt_oxides_dict):
