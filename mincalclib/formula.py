@@ -462,7 +462,7 @@ def changeKeys(dictionary, old_key, new_key):
         dictionary[new_key] = dictionary[old_key]
         del dictionary[old_key]
         #print(dictionary)
-        for k, v in dictionary.items():
+        #for k, v in dictionary.items():
             #print("keys ", k)
            # print("value ", v)
     return dictionary
