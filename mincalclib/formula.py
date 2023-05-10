@@ -125,7 +125,7 @@ def sortDictCations(dict_unsorted_cats):
       if k in dict_unsorted_cats.keys():
         item = [(k, dict_unsorted_cats[k])]  # for k in order]
         # print("item cat:", item)
-      elif k not in dict_unsorted_cats.keys():
+  #    elif k not in dict_unsorted_cats.keys():
         #print("missing value in cations: ", k)
         # print("???")
     dict_sorted_Ox.update(item)
