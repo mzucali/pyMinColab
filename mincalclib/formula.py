@@ -167,11 +167,11 @@ def formula_from_oxides(mineral_Ox_dict):
     sum_oxides(mineral_Ox_dict)
     # addValueDictEasy("SumOX", wt_perc_oxides_sum, dict_wt_perc_oxides)
     #print("dict_mineral_Ox con SOMMA")
-    print_mineral_key_value(mineral_Ox_dict)
+    #print_mineral_key_value(mineral_Ox_dict)
     #print("print_mineral_key_value(dict_wt_perc_oxides)")
-    print_mineral_key_value(dict_wt_perc_oxides)
+    #print_mineral_key_value(dict_wt_perc_oxides)
     #print("molecular weight used")
-    print_mineral_key_value(dict_molecular_weights)
+    #print_mineral_key_value(dict_molecular_weights)
     #print("\nMOL PROPORTION")
     global dict_mol_proportion
     global dict_oxygens_prop
@@ -371,7 +371,7 @@ def multipl_by_num_oxygens(mol_proportion_dict1):
             # print ("progression SUM = " + str(mol_prop_by_oxygens_sum_tmp))
     #print("final SUM = " + str(mol_prop_by_oxygens_sum_tmp))
     #print("\ndict_mol_by_oxygens")
-    print_mineral_key_value(mol_by_oxygens_dict_tmp)
+    #print_mineral_key_value(mol_by_oxygens_dict_tmp)
     return mol_by_oxygens_dict_tmp, mol_prop_by_oxygens_sum_tmp
 
 
@@ -418,11 +418,11 @@ def oxygen_proportion(mineral_input_dict, mol_by_oxygens_dict, mol_prop_sum):
         # oxygens_prop_dict_tmp.update(oxygen_prop)
 
     #print("Oxygens_prop_dict")
-    print_mineral_key_value(oxygens_prop_dict_tmp)
+    #print_mineral_key_value(oxygens_prop_dict_tmp)
     return oxygens_prop_dict_tmp
 
     #print("oxygens_in_formula_dict[]")
-    print_mineral_key_value(oxygens_in_formula_dict)
+    #print_mineral_key_value(oxygens_in_formula_dict)
     return oxygens_in_formula_dict
 
 
