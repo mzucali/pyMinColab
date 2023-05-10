@@ -112,7 +112,7 @@ def sortDictOxides(dict_unsorted_Ox):
             item = [(k, dict_unsorted_Ox[k])]  # for k in order]
             #print("items oxide:", item)
         elif k not in dict_unsorted_Ox.keys():
-            print("missing value: ", k)
+            #print("missing value: ", k)
         dict_sorted_Ox.update(item)
     return dict_sorted_Ox
 
@@ -126,7 +126,7 @@ def sortDictCations(dict_unsorted_cats):
         item = [(k, dict_unsorted_cats[k])]  # for k in order]
         # print("item cat:", item)
       elif k not in dict_unsorted_cats.keys():
-        print("missing value in cations: ", k)
+        #print("missing value in cations: ", k)
         # print("???")
     dict_sorted_Ox.update(item)
 
@@ -236,9 +236,9 @@ def formula_from_oxides(mineral_Ox_dict):
         #lista = []
         if k in dict_data_recalc_Ox.keys(): # se quel valore è in
             items = [(k, dict_data_recalc_Ox[k])]  # for k in order]
- #           print("items oxide:", items)
+ #          #print("items oxide:", items)
         elif k not in dict_data_recalc_Ox.keys():
-            print("missing value: ", k)
+            #print("missing value: ", k)
 
         dict_sorted_data_recalc_Ox.update(items)
 
@@ -264,7 +264,7 @@ def formula_from_oxides(mineral_Ox_dict):
             itema = [(k, cats_per_oxy_dict[k])]  # for k in order]
             # print("itema cat:", itema)
         elif k not in cats_per_oxy_dict.keys():
-            print("missing value in cations: ", k)
+            #print("missing value in cations: ", k)
             # print("???")
 
         sorted_cats_per_oxy_dict.update(itema)
