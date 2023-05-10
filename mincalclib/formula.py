@@ -56,11 +56,11 @@ def formula_for_a_list_of_dict_oxides(lista):
     print("data_input_Ox_dict_list...\n", data_input_Ox_dict_list)
     # per ogni analisi nella lista di analisi ricalcola la formula
     for input_data_OX_single_dict in data_input_Ox_dict_list:
-        print("input...", input_data_OX_single_dict)
+        #print("input...", input_data_OX_single_dict)
         formula_from_oxides(input_data_OX_single_dict)
-        print("dict_completo", dict_completo)
+        #print("dict_completo", dict_completo)
         listaOUT.append(dict_completo)
-        print("listaOUT", listaOUT)
+        #print("listaOUT", listaOUT)
 
     print("FROM formula_calc formula_for_a_list_of_dict_oxides")
     print("data_Ox_with_OX_list: ", data_Ox_with_OX_list)
@@ -124,7 +124,7 @@ def sortDictCations(dict_unsorted_cats):
     # print("list_cations_order: ",k)
       if k in dict_unsorted_cats.keys():
         item = [(k, dict_unsorted_cats[k])]  # for k in order]
-        print("item cat:", item)
+        # print("item cat:", item)
       elif k not in dict_unsorted_cats.keys():
         print("missing value in cations: ", k)
         # print("???")
