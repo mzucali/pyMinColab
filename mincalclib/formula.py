@@ -317,6 +317,7 @@ def addValueDict(key, val, old_dict, new_dict):
 def print_mineral_keys(mineral_dict):
     #print("\nprint_mineral_keys")
     for mineral_keys in mineral_dict.keys():
+        a=0
         #print(mineral_keys)
     return mineral_dict
 
