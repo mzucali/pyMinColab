@@ -237,7 +237,7 @@ def formula_from_oxides(mineral_Ox_dict):
         if k in dict_data_recalc_Ox.keys(): # se quel valore è in
             items = [(k, dict_data_recalc_Ox[k])]  # for k in order]
  #          #print("items oxide:", items)
-        elif k not in dict_data_recalc_Ox.keys():
+        #elif k not in dict_data_recalc_Ox.keys():
             #print("missing value: ", k)
 
         dict_sorted_data_recalc_Ox.update(items)
@@ -263,7 +263,7 @@ def formula_from_oxides(mineral_Ox_dict):
         if k in cats_per_oxy_dict.keys():
             itema = [(k, cats_per_oxy_dict[k])]  # for k in order]
             # print("itema cat:", itema)
-        elif k not in cats_per_oxy_dict.keys():
+       # elif k not in cats_per_oxy_dict.keys():
             #print("missing value in cations: ", k)
             # print("???")
 
