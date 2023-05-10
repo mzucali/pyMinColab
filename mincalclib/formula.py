@@ -633,8 +633,8 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 single.update({'Sum_Y': round(Sum_Y, 3)})
                 try:
                     Y_X
-                #except NameError:
-                    #print("no Y")
+                except NameError:
+                    print()
                 else:
                     single.update({'Y_X': round(Y_X,3)})
 
