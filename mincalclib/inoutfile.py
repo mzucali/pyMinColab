@@ -135,7 +135,7 @@ def readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(file_Input_XLSX):
     for riga in range(1):
         headers = []  # global headers
         for colo in range(active_sheet.max_column):
-#            print("line 99**: ", riga + 1, colo + 1)
+#            #print("line 99**: ", riga + 1, colo + 1)
             headers.append(str(active_sheet.cell(riga + 1, colo + 1).value).strip())
         #    headers.append(str(active_sheet.cell(riga + 1, colo + 1).value.upper()).strip()) # così magari trasformo tutti gli headers prima di andare avanti
         # print ('headers read in Sheet: ', active_sheet.name)
@@ -144,8 +144,8 @@ def readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(file_Input_XLSX):
         headers[1] = 'mineral' # <= check 2/2/23
         # print("SAMPLE: ",headers[0])
         # print("MINERAL ", headers[1])
-        print("headers")
-        print('\t'.join(i for i in headers))
+        #print("headers")
+        #print('\t'.join(i for i in headers))
 
     print()
 
@@ -157,17 +157,17 @@ def readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(file_Input_XLSX):
         values = []
         for cols in range(active_sheet.max_column):
             values.append(active_sheet.cell(rows + 1, cols + 1).value)
-        print("Analysis = %s" % rows)
-        print("Headers:\t" + '\t'.join([str(i) for i in headers]))
-        print("Values:\t" + '\t'.join([str(i) for i in values]))
+        #print("Analysis = %s" % rows)
+        #print("Headers:\t" + '\t'.join([str(i) for i in headers]))
+        #print("Values:\t" + '\t'.join([str(i) for i in values]))
         # dict_data_input_OX 
         dict_data_input_Ox = OrderedDict(zip(headers, values))
-        print("INOUTFILE dict_data_input_Ox = ", dict_data_input_Ox)
+        #print("INOUTFILE dict_data_input_Ox = ", dict_data_input_Ox)
         #             for k,v in dict_data_input_Ox.items():
         #                 print("k e v: ", k, v)
         data_input_Ox_dict2 = OrderedDict(zip(headers, values))
         data_input_Ox_dict2 = changeMineralLabels(dict_data_input_Ox)
-        print("INOUTFILE dict_data_input_Ox CHANGED MIN LABEL= ", data_input_Ox_dict2)
+        #print("INOUTFILE dict_data_input_Ox CHANGED MIN LABEL= ", data_input_Ox_dict2)
         # list_data_input_Ox_dict = []
         # print("from READEXCEL2 added analysis = ",dict_data_input_Ox)
         # print()
@@ -187,9 +187,8 @@ def readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(file_Input_XLSX):
 def changeMineralLabels(cats_dict):
     if cats_dict['mineral'] in mineral_constants.dict_mineral_labels.keys():
         v = cats_dict['mineral']
-        print("changeALLKeys found: ", v)
-
-        print(mineral_constants.dict_mineral_labels[v])
+        #print("changeALLKeys found: ", v)
+        #print(mineral_constants.dict_mineral_labels[v])
         new_value = mineral_constants.dict_mineral_labels[v]
         cats_dict['mineral'] = new_value
 
@@ -216,10 +215,10 @@ def write_out_base_data(recalc_data_oxides_cats_OX__list, inputfile_path):
 
     row = 1
     col = 1
-    print("DATASET write headers from oxides_dict_list...", recalc_data_oxides_cats_OX__list)
-    print("DATASET write headers from self.data_input_OX_list", recalc_data_oxides_cats_OX__list)
+    #print("DATASET write headers from oxides_dict_list...", recalc_data_oxides_cats_OX__list)
+    #print("DATASET write headers from self.data_input_OX_list", recalc_data_oxides_cats_OX__list)
     for k in recalc_data_oxides_cats_OX__list[0]:
-        print("k=> ", str(k))
+        #print("k=> ", str(k))
 
         #       wsheet.write(row, col, k)
         wsheet.cell(row, col).value = k
@@ -311,11 +310,11 @@ def write_out_data_by_mineral_with_specific_sites(recalc_data_oxides_cats_OX_by_
     print("INOUTFILE=>write_out_data_by_mineral_with_specific_sites(recalc_data_oxides_cats_OX_by_mineral_list)")
 
     for k, v in recalc_data_oxides_cats_OX_by_mineral_list.items():
-        print("k and v: ", k, v)
+        #print("k and v: ", k, v)
 
-        print("FILE INPUT ..." + fileOUT)
+        #print("FILE INPUT ..." + fileOUT)
         file_output = removeEXT(fileOUT) + '_' + k + '.xlsx'
-        print("FILE OUTPUT ..." + file_output)
+        #print("FILE OUTPUT ..." + file_output)
 
         wbook = openpyxl.Workbook(file_output)
         wsheet = wbook.create_sheet(k)
