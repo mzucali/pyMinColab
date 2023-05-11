@@ -243,19 +243,19 @@ def formula_from_oxides(mineral_Ox_dict):
         dict_sorted_data_recalc_Ox.update(items)
 
     global data_Ox_with_OX_list
-    print("data_Ox_with_OX_list BEFORE",data_Ox_with_OX_list)
+    #print("data_Ox_with_OX_list BEFORE",data_Ox_with_OX_list)
  #   data_Ox_with_OX_list.append(dict_sorted_data_recalc_Ox) # <= OLD working check 2/2/23
     data_Ox_with_OX_list.append(dict_ordered_Ox) # <= test 2/2/23
-    print("data_Ox_with_OX_list AFTER",data_Ox_with_OX_list)
+    #print("data_Ox_with_OX_list AFTER",data_Ox_with_OX_list)
 
     # global cats_per_oxy_dict
     cats_per_oxy_dict.update({"SUMcat": round(cation_per_oxy_sum, 3)})
     cats_per_oxy_dict = changeALLKeys(cats_per_oxy_dict)
-    print("cats_per_oxy_dict Prima: ", cats_per_oxy_dict)
+    #print("cats_per_oxy_dict Prima: ", cats_per_oxy_dict)
     ##sort
     #sorted_cats_per_oxy_dict = {}
     dict_sorted_cats = sortDictCations(cats_per_oxy_dict) # NEW Feb 2023
-    print("sorted_cats_per_oxy_dict NEW", dict_sorted_cats)  # NEW Feb 2023
+    #print("sorted_cats_per_oxy_dict NEW", dict_sorted_cats)  # NEW Feb 2023
 
     sorted_cats_per_oxy_dict = {}# <= OLD check
     for k in list_cations_order:
@@ -270,7 +270,7 @@ def formula_from_oxides(mineral_Ox_dict):
         sorted_cats_per_oxy_dict.update(itema)
 
     cations_apfu_dict_list.append(sorted_cats_per_oxy_dict)
-    print("sorted_cats_per_oxy_dict OLD", cations_apfu_dict_list)
+    #print("sorted_cats_per_oxy_dict OLD", cations_apfu_dict_list)
     global dict_completo
     dict_completo = deepcopy(dict_sorted_data_recalc_Ox)
     dict_completo.update(sorted_cats_per_oxy_dict)
@@ -334,7 +334,7 @@ def mol_proportion(wt_oxides_dict):
     mol_prop_sum_tmp = 0
     print("mol_prop_sum_tmp = " + str(mol_prop_sum))
     for k, v in wt_oxides_dict.items():
-        print("KAPPA: ",k)
+        #print("KAPPA: ",k)
         if k in dict_molecular_weights:
             mol_prop = v / dict_molecular_weights[k]
             #            global dict_mol_proportion
