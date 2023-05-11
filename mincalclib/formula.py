@@ -49,7 +49,8 @@ data_Ox_with_OX_list = []
 
 
 def formula_for_a_list_of_dict_oxides(lista):
-    print("STARTING FORMULA formula_for_a_list_of_dict_oxides(lista)")
+    print("Version 11 May 2023")
+    #print("STARTING FORMULA formula_for_a_list_of_dict_oxides(lista)")
     print("input from dataset")
     listaOUT = []
     data_input_Ox_dict_list = lista
