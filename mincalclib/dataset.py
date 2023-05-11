@@ -28,16 +28,16 @@ class dataset(object):
 
         # global dict_recalc_data_oxides_cats_OX_by_mineral_list;
         list_df_input_data_oxides_sample_mineral_OX_dict = inoutfile.readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(inputfile_path)
-        print("DATASET2_1 list_df_input_data_oxides_sample_mineral_OX_dict", list_df_input_data_oxides_sample_mineral_OX_dict)
+        #print("DATASET2_1 list_df_input_data_oxides_sample_mineral_OX_dict", list_df_input_data_oxides_sample_mineral_OX_dict)
         pd_data = pd.DataFrame.from_dict(list_df_input_data_oxides_sample_mineral_OX_dict)
-        print("DATASET2_1.1 dataframe from ORDERED dict: ")
+        #print("DATASET2_1.1 dataframe from ORDERED dict: ")
         for item in pd_data.iterrows():
             print(item)
-        print("OUTPUT ALL INPUT DATA",pd_data)
+        #print("OUTPUT ALL INPUT DATA",pd_data)
         print("NOW STARTING RECALC PROCEDURE\n")
         ## quello che segue ha come output una lista di analisi ricalcolate utilizzano FORMULA
         recalc_data_oxides_cats_OX_list = formula.formula_for_a_list_of_dict_oxides(list_df_input_data_oxides_sample_mineral_OX_dict)
-        print("DATASET2_2 recalc_data_oxides_cats_OX_list TUTTE LE ANALISI RICALCOLATE", recalc_data_oxides_cats_OX_list)
+        #print("DATASET2_2 recalc_data_oxides_cats_OX_list TUTTE LE ANALISI RICALCOLATE", recalc_data_oxides_cats_OX_list)
         pd_data2 = pd.DataFrame.from_dict(recalc_data_oxides_cats_OX_list)
         for item in pd_data2.iterrows():
             print(item)
