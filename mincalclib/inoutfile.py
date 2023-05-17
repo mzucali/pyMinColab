@@ -162,12 +162,12 @@ def readFILE_E_ESTRAI_DATI_MA_CONTROLLA_MINLABEL_SET_OX(file_Input_XLSX):
         print("Values:\t" + '\t'.join([str(i) for i in values]))
         # dict_data_input_OX 
         dict_data_input_Ox = OrderedDict(zip(headers, values))
-        print("INOUTFILE dict_data_input_Ox = ", dict_data_input_Ox)
+        #print("INOUTFILE dict_data_input_Ox = ", dict_data_input_Ox)
         #             for k,v in dict_data_input_Ox.items():
         #                 print("k e v: ", k, v)
         data_input_Ox_dict2 = OrderedDict(zip(headers, values))
         data_input_Ox_dict2 = changeMineralLabels(dict_data_input_Ox)
-        print("INOUTFILE dict_data_input_Ox CHANGED MIN LABEL= ", data_input_Ox_dict2)
+        #print("INOUTFILE dict_data_input_Ox CHANGED MIN LABEL= ", data_input_Ox_dict2)
         # list_data_input_Ox_dict = []
         # print("from READEXCEL2 added analysis = ",dict_data_input_Ox)
         # print()
@@ -209,15 +209,16 @@ def write_out_base_data(recalc_data_oxides_cats_OX__list, inputfile_path):
     file_output = removeEXT(inputfile_path) + '_RECALC.xlsx'
     print("FILE OUTPUT ..." + file_output)
     print("WRITING HEADERS to FileOUT " + str(file_output))
-
+    print('\n')
     # wbook = openpyxl.Workbook(file_output)
     wbook = openpyxl.Workbook()
     wsheet = wbook.create_sheet("data")
-
     row = 1
     col = 1
-    print("DATASET write headers from oxides_dict_list...", recalc_data_oxides_cats_OX__list)
-    print("DATASET write headers from self.data_input_OX_list", recalc_data_oxides_cats_OX__list)
+    print("DATASET write headers from oxides_dict_list...")##, recalc_data_oxides_cats_OX__list)
+    for l in recalc_data_oxides_cats_OX__list:
+        print(l,'\n')
+    #print("DATASET write headers from self.data_input_OX_list", recalc_data_oxides_cats_OX__list)
     for k in recalc_data_oxides_cats_OX__list[0]:
         #print("k=> ", str(k))
         #       wsheet.write(row, col, k)
@@ -226,8 +227,8 @@ def write_out_base_data(recalc_data_oxides_cats_OX__list, inputfile_path):
     row = 1
     col += 1
 
-    print("column = " + str(col))
-    print("row = " + str(row))
+    #print("column = " + str(col))
+    #print("row = " + str(row))
 
     # wbook.save(file_output)
 
@@ -246,8 +247,8 @@ def write_out_base_data(recalc_data_oxides_cats_OX__list, inputfile_path):
         col += 1
         row = 1
 
-    print("GLOBAL WBOOK: ", wbook)
-
+    #print("GLOBAL WBOOK: ", wbook)
+    print("INOUTFILE line 251: saving to output file")
     wbook.save(file_output)
     transpose_excel(file_output)
 

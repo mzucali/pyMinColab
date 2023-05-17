@@ -32,6 +32,7 @@ class dataset(object):
         pd_data = pd.DataFrame.from_dict(list_df_input_data_oxides_sample_mineral_OX_dict)
         #print("DATASET2_1.1 dataframe from ORDERED dict: ")
         for item in pd_data.iterrows():
+            print("DATA INPUT")
             print(item)
         #print("OUTPUT ALL INPUT DATA",pd_data)
         print("NOW STARTING RECALC PROCEDURE\n")
@@ -40,6 +41,7 @@ class dataset(object):
         #print("DATASET2_2 recalc_data_oxides_cats_OX_list TUTTE LE ANALISI RICALCOLATE", recalc_data_oxides_cats_OX_list)
         pd_data2 = pd.DataFrame.from_dict(recalc_data_oxides_cats_OX_list)
         for item in pd_data2.iterrows():
+            print("DATA RECALC")
             print(item)
         print(pd_data2)
 
@@ -58,8 +60,8 @@ class dataset(object):
         print("WRITE TO EXCEL a last worksheet with same INPUT BUT in AX format")
         return
     
-    def return_recalculated_data(self):
-        return recalc_data_oxides_cats_OX_by_mineral_list
+    # def return_recalculated_data(self):
+    #     return recalc_data_oxides_cats_OX_by_mineral_list
 
     def return_fileout(self):
         return fileOUT

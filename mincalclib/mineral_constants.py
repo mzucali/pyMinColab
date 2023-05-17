@@ -190,80 +190,70 @@ dict_mass = {
 }
 
 dict_mineral_oxigens = {
-
+#amphibole
     "amph": 23,
     "amph23":23,
     "amph23.5":23.5,
-
-##GARNET
-
+##analcime
+    "analcime":6,
 #garnet 2
     "grt": 12,
-
-
 #pyroxene 3
     "px" : 6,
-
 #allumosilicates 4
-
     "als" : 20,
 #biotite 5
     "bt": 22,
     #"bt22": 22,
     #"bt11": 11,
-
-
 #white mica 18
     "wm": 11,
     "wm11": 11,
     "wm22": 22,
-
 #chlorite 6
     "chl": 28,
 #cordierite 7
     "crd" : 18,
-
 #chloritoid 8
     "ctd" : 12,
 #calcite/carb/dol 9
     "cc":14,
 #clinohumite 10
     "chum":18,
-
 #corindone 11
     "cor": 3,
-
 #epidote 12
-    "ep":25,
-    
+    "ep":25,  
 #feldspar&plagioclase 13
-
     "fsp":8,
 #ilmenite 14
-    "ilm":3,
-    
+    "ilm":3,   
 # rutile 15
     "rt": 2, 
 #SPINEL 16
-    "sp": 4,
-    
+    "sp": 4,   
 #PUMPELLYITE 17
     "pump" : 14,
-    
-    
+#op
     "op" : 14,
 #olivine 19
     "ol" : 4,
 #titanite 20 
     "ttn": 5,
 #melilite 21
-    "mel": 14,
-    
+    "mel": 14, 
 #zircon 22
-    'zrc': 16,
+    "zrc": 16,
 #turmaline
-    'tur': 31,
-
+    "tur": 31,
+#leucite
+    "leuc":6,
+#nepheline
+    "neph":32,
+#perovskite
+    "perov":3,
+#sapphirine
+    "sapph":20,
 #UNKNOWN 
     "xx" : 10,
 
@@ -286,7 +276,10 @@ dict_mineral_labels = {
     "ged" : 'amph',
     
 #amph=['AMP' , 'Amp' , 'amp' , 'am' , 'a' , 'amph' , 'Amph' , 'Oam' , 'OAm','gln','g','glau', 'amphibole','act']
-    
+
+#analcime
+    "AC":'analcime',
+
 #garnet
     "grt": 'grt',
     "GT": 'grt',
@@ -376,6 +369,7 @@ dict_mineral_labels = {
     "ct" : 'ctd',
     "Ctd" : 'ctd',
     "Cld" : 'ctd',
+    "CI" : 'ctd',
 
 #ctd= ['Ctd', 'Cld', 'ctd', 'cld']
 
@@ -399,6 +393,7 @@ dict_mineral_labels = {
     "dol" : 'cc',
     "Ank" : 'cc',
     "ank": 'cc',
+    "CB": 'cc',
 
 #cc=['CC', 'DOL','Do', 'dol' , 'd' , 'Cc' , 'cal' , 'Cal' , 'Ank' ,'ank']
 
@@ -441,24 +436,37 @@ dict_mineral_labels = {
     "albite":'fsp',
     "plagioclase":'fsp',
     "fp" : 'fsp',
+    "FP": 'fsp',
     
 #fds=['Fd', 'Kfs', 'Ab', 'An','ab','an','kfs','pl', 'Pl']
 
 #ilmenite
     "il":'ilm',
     "ilm":'ilm',
+    "IL":'ilm',
+#leucite
+    "LC": 'leuc',
 
+#nepheline
+    "NE": 'neph',
+#perovskite
+    "PV": 'perov',
 #rutile
     "Rt": 'rt',
     "rt": 'rt',
     "Ru": 'rt',
     "rutile": 'rt',
+#sapphirine
+    "SA":'sa',
+    "sa":'sa',
+    "Sa":'sa',
 
 #SPINEL
     "sp": 'sp',
     "spinel":'sp',
     "Sp":'sp',
     "spl":'sp',
+    "SP":'sp',
 
 #opaque
     "op": 'op',
@@ -509,6 +517,7 @@ dict_mineral_labels = {
     "torm" : 'tur',
 #unknown
     "xx" : 'xx',
+    "XX" : 'xx',
 
 }
 

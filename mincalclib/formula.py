@@ -54,7 +54,7 @@ def formula_for_a_list_of_dict_oxides(lista):
     print("input from dataset")
     listaOUT = []
     data_input_Ox_dict_list = lista
-    print("data_input_Ox_dict_list...\n", data_input_Ox_dict_list)
+    #print("data_input_Ox_dict_list...\n", data_input_Ox_dict_list)
     # per ogni analisi nella lista di analisi ricalcola la formula
     for input_data_OX_single_dict in data_input_Ox_dict_list:
         #print("input...", input_data_OX_single_dict)
@@ -64,9 +64,9 @@ def formula_for_a_list_of_dict_oxides(lista):
         #print("listaOUT", listaOUT)
 
     print("FROM formula_calc formula_for_a_list_of_dict_oxides")
-    print("data_Ox_with_OX_list: ", data_Ox_with_OX_list)
-    print("cations_apfu_dict_list", cations_apfu_dict_list)
-    print("LISTAOUT...", listaOUT)
+    #print("data_Ox_with_OX_list: ", data_Ox_with_OX_list)
+    #print("cations_apfu_dict_list", cations_apfu_dict_list)
+    #print("LISTAOUT...", listaOUT)
 
     return listaOUT
 
@@ -180,24 +180,21 @@ def formula_from_oxides(mineral_Ox_dict):
     # dict_mol_proportion = mol_proportion(dict_mineral_Ox)
     dict_mol_proportion, mol_prop_sum = mol_proportion(dict_wt_perc_oxides)
     print("\nmole proportion dict EXT (updated?): ")
-    print(dict_mol_proportion)
+    #print(dict_mol_proportion)
     print("MOL prop sum EXT")
-    print(mol_prop_sum)
+    #print(mol_prop_sum)
     print("\nMULTIPLY BY OXYGENS")
     mol_by_oxygens_dict, mol_prop_by_oxygens_sum = multipl_by_num_oxygens(dict_mol_proportion)
     print("\nOXYGENS PROPORTIONS")
-    print("dict_mol_by_oxygens type ", type(mol_by_oxygens_dict))
-
-    print(".dict_oxygens_prop type ", type(dict_oxygens_prop))
+    #print("dict_mol_by_oxygens type ", type(mol_by_oxygens_dict))
+    #print(".dict_oxygens_prop type ", type(dict_oxygens_prop))
     dict_oxygens_prop = oxygen_proportion(dict_wt_perc_oxides, mol_by_oxygens_dict, mol_prop_by_oxygens_sum)
-    print("OXYGENS from Formula = " + str(oxygens))
-    print("oxygens_in_formula_list[nyx] ", oxygens_in_formula_list[nyx])
-
+    #print("OXYGENS from Formula = " + str(oxygens))
+    #print("oxygens_in_formula_list[nyx] ", oxygens_in_formula_list[nyx])
     oxygens_in_formula_list[nyx] = oxygens
-    print("last added oxygens value = ", oxygens_in_formula_list[nyx])
-    print("all added oxygens values = ", oxygens_in_formula_list)
+    #print("last added oxygens value = ", oxygens_in_formula_list[nyx])
+    #print("all added oxygens values = ", oxygens_in_formula_list)
     # oxygens_in_formula_dict_list.append(oxygens_in_formula_dict)
-
     # print "oxygens_in_formula_dict_list: ", oxygens_in_formula_dict_list[nyx]
     nyx += 1
     print("\nCATION APFU")
@@ -206,7 +203,7 @@ def formula_from_oxides(mineral_Ox_dict):
     global cats_per_oxy_dict
     global cation_per_oxy_sum
     cats_per_oxy_dict, cation_per_oxy_sum = cations_apfu(dict_oxygens_prop)
-    print("FORMULA cats_per_oxy_dict ", cats_per_oxy_dict)
+    #print("FORMULA cats_per_oxy_dict ", cats_per_oxy_dict)
 
     calcSiteDistribution(cats_per_oxy_dict)
     headers_written = False
@@ -215,18 +212,16 @@ def formula_from_oxides(mineral_Ox_dict):
 
     print("MINERAL PHASE DICT")
     print("ossidi")
-    print(oxygens_in_formula_list)
+    #print(oxygens_in_formula_list)
     print("cationi")
-    print(cats_per_oxy_dict)
-
+    #print(cats_per_oxy_dict)
     global dict_data_recalc_Ox
     dict_data_recalc_Ox.update({'OX': oxygens})
-    print("dict_data_recalc_Ox before SORTING", dict_data_recalc_Ox)
-
+    #print("dict_data_recalc_Ox before SORTING", dict_data_recalc_Ox)
     dict_sorted_data_recalc_Ox = {}
     dict_unsorted_data_recalc_Ox = compareLabelsDictDataToListOx(dict_data_recalc_Ox, list_oxides_order) # <= test 2/2/23
     dict_ordered_Ox = sortDictOxides(dict_unsorted_data_recalc_Ox) # <= test 2/2/23
-    print("dict_ordered_Ox: ",dict_ordered_Ox)
+    #print("dict_ordered_Ox: ",dict_ordered_Ox)
 
     ##sort
     #flat(key0) in (flat(key) for key in list(dict.keys()))
@@ -296,11 +291,11 @@ def sum_oxides(mineral_dict1):
     print("Total Sum = %f" % summa)
     # global dict_mineral_Ox
     print("mineral_dict")
-    print(mineral_dict1)
+    #print(mineral_dict1)
     #    mineral_dict1 = addValueDict("OxSum", sum, mineral_dict1, mineral_dict1)
     mineral_dict1.update({"OxSum": round(summa, 2)})
     print("UPDATED?")
-    print(mineral_dict1)
+    #print(mineral_dict1)
     # global dict_data_input_Ox
     # oxides_dict = mineral_dict1
     global dict_data_recalc_Ox
@@ -333,7 +328,7 @@ def mol_proportion(wt_oxides_dict):
     mol_proportion_dict_tmp = OrderedDict()  ##<<<====
     # mol_proportion_dict_tmp = {}
     mol_prop_sum_tmp = 0
-    print("mol_prop_sum_tmp = " + str(mol_prop_sum))
+    #print("mol_prop_sum_tmp = " + str(mol_prop_sum))
     for k, v in wt_oxides_dict.items():
         #print("KAPPA: ",k)
         if k in dict_molecular_weights:
@@ -349,9 +344,9 @@ def mol_proportion(wt_oxides_dict):
             None
             print("none....")
 
-    print("mol_prop sum total: %f" % mol_prop_sum_tmp)
-    print("\ndict_mol_proportion NO sum")
-    print(mol_proportion_dict_tmp)
+    #print("mol_prop sum total: %f" % mol_prop_sum_tmp)
+    #print("\ndict_mol_proportion NO sum")
+    #print(mol_proportion_dict_tmp)
     # addValueDictEasy("mol_prop_sum", mol_prop_sum_tmp, mol_proportion_dict_tmp)
     return mol_proportion_dict_tmp, mol_prop_sum_tmp
 
@@ -382,7 +377,7 @@ def oxygen_proportion(mineral_input_dict, mol_by_oxygens_dict, mol_prop_sum):
     # .dict_wt_perc_oxides = mineral_input_dict
     # print("mineral_input_dict: ", mineral_input_dict)
     # print(".dict_wt_perc_oxides ", .dict_wt_perc_oxides)
-    print("searching for mineral: ", mineral_input_dict['mineral'])
+    # print("searching for mineral: ", mineral_input_dict['mineral'])
     # print ("searching for mineral: " + mineral_input_dict['Mineral'].casefold())
     # labels = labels
   #  for k, v in dict_mineral_oxigens.items():
@@ -398,7 +393,7 @@ def oxygen_proportion(mineral_input_dict, mol_by_oxygens_dict, mol_prop_sum):
     # print("len: ",len(oxygens_in_formula_list))
     ox_num = 0
     global oxygens_in_formula_dict
-    print("oxygens_in_formula_dict", oxygens_in_formula_dict)
+    #print("oxygens_in_formula_dict", oxygens_in_formula_dict)
     # oxygens_in_formula_dict = []
     oxygens_in_formula_dict[ox_num] = oxygens
     # print("oxygens_in_formula_list type", oxygens_in_formula_list)
@@ -418,7 +413,7 @@ def oxygen_proportion(mineral_input_dict, mol_by_oxygens_dict, mol_prop_sum):
         # oxygens_prop_dict_tmp.update(oxygen_prop)
 
     print("Oxygens_prop_dict")
-    print_mineral_key_value(oxygens_prop_dict_tmp)
+    #print_mineral_key_value(oxygens_prop_dict_tmp)
     return oxygens_prop_dict_tmp
 
     print("oxygens_in_formula_dict[]")
@@ -470,17 +465,16 @@ def changeKeys(dictionary, old_key, new_key):
 
 def changeALLKeys(cats_dict):
     # module to change labels in cation dict because it now uses same as oxides
-    print("cats_dict before...")
-    print(cats_dict)
-
+    #print("cats_dict before...")
+    #print(cats_dict)
     for key in cats_dict.keys() & dict_cation_labels.keys():
      #   print("changeALLKeys found: ", key)
         new_key = dict_cation_labels[key]
         old_key = key
         cats_dict[new_key] = cats_dict[old_key]
         del cats_dict[old_key]
-    print("cats_dict after...")
-    print(cats_dict)
+    #print("cats_dict after...")
+    #print(cats_dict)
     return cats_dict
 
 
@@ -494,15 +488,15 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
 
     a_args = []
     print("recalc_data_oxides_cats_OX_list\n")
-    print(recalc_data_oxides_cats_OX_list)
+    #print(recalc_data_oxides_cats_OX_list)
 
     lista = []
     for each_analysis in recalc_data_oxides_cats_OX_list:
         lista.append(each_analysis)
-    print("LISTA ", lista)
 
+    print("LISTA Formula 499")
     for l in lista:
-        print("l: ", l)
+        print(l)
         if l['mineral'] not in a_args:
             a_args += [l['mineral']]
             new_list = [[]] * len(a_args)
@@ -515,7 +509,11 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
         dict_of_list[a_args[i]] = sublist_list
 
     for mine, value in dict_of_list.items():
-        print("\nmineral group = ", mine, 'is: ', value)
+        #print("\nmineral group = ", mine, 'is: \n', value)
+        print("\nmineral group = ", mine, 'is: \n')
+        for v in value:
+            print(v)
+            print('\n')
         global zzz
         zzz = 100.00001
         if mine == 'grt':
@@ -652,7 +650,7 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 try:
                     Y_X
                 except NameError:
-                    print("no Y")
+                    print("no Y ")
                 else:
                     single.update({'Y_X': round(Y_X,3)})
 
@@ -663,7 +661,7 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 single.update({'Na_X': round(Na_X, 3)})
                 single.update({'Sum_X': round(Sum_X, 3)})
 
-                print("every mineral analysis: ", single, "")
+                #print("every mineral analysis: ", single, "")
                 # P_grt(kbar@550°C)-doi.org/10.3390/min9090540
                 TempK = 923  # 650 Celsius
                 R = scipy.constants.R
@@ -676,7 +674,7 @@ def extract_check_calc_specific_sites(recalc_data_oxides_cats_OX_list):
                 Grt_c = -1304.0*(XFe**2)+71786*(XCa**2)-19932.0*(XCa**2)+1002.0*(XMn**2)\
                     +8082.5*XFe*XMg+42472*XFe*XCa+9122*XFe*XMn+20191.5*XMg*XCa+42769.5*XMg*XMn+28282*XCa*XMn
                 #print("Grt_c = ", Grt_c)
-                if XCa > 0:
+                if XCa > 0 and XFe >0 :
                     P_grt = (-8904.5+24.542*TempK+0.45*R*TempK*math.log(XCa/XFe)+0.15*TempK*Grt_a+0.15*Grt_c)/(1-0.15*Grt_b)/1000   ## Minerals 2019, 9(9), 540; https://doi.org/10.3390/min9090540
                 else:
                     P_grt = 0
