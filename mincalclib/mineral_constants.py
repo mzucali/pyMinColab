@@ -26,7 +26,8 @@ dict_molecular_weights = {'SiO2' : 60.08,
                           'NiO' : 74.7094,
                           'B2O3': 69.6202,
                           'V2O3' : 149.8812,
-                          'Y2O3' : 225.81
+                          'Y2O3' : 225.81,
+                          'BaO': 153.33
                           }
 
 
@@ -48,7 +49,8 @@ dict_oxydes_by_formula = {'SiO2' : 2,
                           'NiO' : 1,
                           'B2O3':3,
                           'V2O3' : 3,
-                          'Y2O3' : 3
+                          'Y2O3' : 3,
+                          'BaO':1,
                           }
 
 dict_cations_by_formula = {'SiO2' : 0.5,
@@ -69,7 +71,8 @@ dict_cations_by_formula = {'SiO2' : 0.5,
                            'NiO' : 1.0,
                            'B2O3': 0.666667,
                            'V2O3' : 0.666667,
-                           'Y2O3' : 0.666667
+                           'Y2O3' : 0.666667,
+                           'BaO' :1
                            }
 
 #!/usr/bin/env python
@@ -570,7 +573,7 @@ dict_cation_labels={'FeO': 'Fe2',
                     'As2O5':'As',
                     'Dy2O5':'Dy',
                     'Gd2O3':'Gd',
-                    'BaO': 'Ba'}
+                    'BaO':'Ba',}
 
 
 list_cations_order = ['Si', 'Ti', 'Al', 'AlVI', 'AlIV', 'Fe3', 'Fe2', 'Mn', 'Mg', 'Ca', 'Na', 'K',

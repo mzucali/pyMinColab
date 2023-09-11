@@ -268,7 +268,8 @@ def transpose_excel(fileOUT):
     writer1 = pd.ExcelWriter(fileOUT)
     df.to_excel(writer1, sheet_name='TAB', index=False)
     df.transpose().to_excel(writer1, sheet_name='APPEND', header=False)
-    writer1.save()
+    writer1.close()
+    #writer1.save()
 
     return
 
