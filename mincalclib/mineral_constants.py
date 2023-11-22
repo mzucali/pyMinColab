@@ -19,16 +19,17 @@ dict_molecular_weights = {'SiO2' : 60.08,
                      'MnO' : 70.94,
                      'Mn2O3' : 157.87,
                      'CaO' : 56.08,
-                          'Cr2O3' : 151.99,
-                          'ZnO' : 81.39,
-                          'P2O5' : 141.94,
-                          'SrO' : 103.62,
-                          'NiO' : 74.7094,
-                          'B2O3': 69.6202,
-                          'V2O3' : 149.8812,
-                          'Y2O3' : 225.81,
-                          'BaO': 153.33
-                          }
+                     'Cr2O3' : 151.99,
+                     'ZnO' : 81.39,
+                     'P2O5' : 141.94,
+                     'SrO' : 103.62,
+                     'NiO' : 74.7094,
+                     'B2O3': 69.6202,
+                     'V2O3' : 149.8812,
+                     'Y2O3' : 225.81,
+                     'BaO': 153.33, ##addede 11 sept 23
+                     'Cl': 35.450,##added 22 Nov 23
+                     }
 
 
 dict_oxydes_by_formula = {'SiO2' : 2,
@@ -51,6 +52,7 @@ dict_oxydes_by_formula = {'SiO2' : 2,
                           'V2O3' : 3,
                           'Y2O3' : 3,
                           'BaO':1,
+                          'Cl' : 1,
                           }
 
 dict_cations_by_formula = {'SiO2' : 0.5,
@@ -72,7 +74,8 @@ dict_cations_by_formula = {'SiO2' : 0.5,
                            'B2O3': 0.666667,
                            'V2O3' : 0.666667,
                            'Y2O3' : 0.666667,
-                           'BaO' :1
+                           'BaO' :1,
+                           'Cl': 1
                            }
 
 #!/usr/bin/env python
