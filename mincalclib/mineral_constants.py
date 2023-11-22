@@ -576,16 +576,18 @@ dict_cation_labels={'FeO': 'Fe2',
                     'As2O5':'As',
                     'Dy2O5':'Dy',
                     'Gd2O3':'Gd',
-                    'BaO':'Ba',}
+                    'BaO':'Ba',
+                    'Cl':'Cl'
+                    }
 
 
 list_cations_order = ['Si', 'Ti', 'Al', 'AlVI', 'AlIV', 'Fe3', 'Fe2', 'Mn', 'Mg', 'Ca', 'Na', 'K',
-                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','SUMcat']
+                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','Cl','SUMcat']
 
 
 
 list_oxides_order = ['Sample', 'mineral', 'SiO2', 'TiO2', 'Al2O3', 'Fe2O3', 'FeO', 'MnO', 'MgO', 'CaO', 'Na2O', 'K2O',
-                'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','BaO','OxSum', 'OX']
+                'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','BaO','Cl','OxSum', 'OX']
 
 
 
