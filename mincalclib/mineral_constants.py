@@ -28,7 +28,7 @@ dict_molecular_weights = {'SiO2' : 60.08,
                      'V2O3' : 149.8812,
                      'Y2O3' : 225.81,
                      'BaO': 153.33, ##addede 11 sept 23
-                     'Cl': 35.450,##added 22 Nov 23
+                     'Cl': 35.450, ##added 22 Nov 23
                      }
 
 
@@ -75,7 +75,7 @@ dict_cations_by_formula = {'SiO2' : 0.5,
                            'V2O3' : 0.666667,
                            'Y2O3' : 0.666667,
                            'BaO' :1,
-                           'Cl': 1
+                           'Cl': 1,
                            }
 
 #!/usr/bin/env python
@@ -577,7 +577,7 @@ dict_cation_labels={'FeO': 'Fe2',
                     'Dy2O5':'Dy',
                     'Gd2O3':'Gd',
                     'BaO':'Ba',
-                    'Cl':'Cl'
+                    'Cl':'Cl',
                     }
 
 
