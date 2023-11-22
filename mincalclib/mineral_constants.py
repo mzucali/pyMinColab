@@ -577,12 +577,12 @@ dict_cation_labels={'FeO': 'Fe2',
                     'Dy2O5':'Dy',
                     'Gd2O3':'Gd',
                     'BaO':'Ba',
-                    'Cl':'Cl',
+                    'Cl':'Cl1',
                     }
 
 
 list_cations_order = ['Si', 'Ti', 'Al', 'AlVI', 'AlIV', 'Fe3', 'Fe2', 'Mn', 'Mg', 'Ca', 'Na', 'K',
-                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','Cl','SUMcat']
+                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','Cl1','SUMcat']
 
 
 
