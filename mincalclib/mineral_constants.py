@@ -29,7 +29,7 @@ dict_molecular_weights = {'SiO2' : 60.08,
                      'Y2O3' : 225.81,
                      'BaO': 153.33, ##addede 11 sept 23
                      'Cl': 35.450, ##added 22 Nov 23
-
+                     'F' : 18.9984032,
                      }
 
 
@@ -54,7 +54,7 @@ dict_oxydes_by_formula = {'SiO2' : 2.0,
                           'Y2O3' : 3.0,
                           'BaO': 1.0,
                           'Cl' : 1.0,
-
+                         'F': 1.0,
                           }
 
 dict_cations_by_formula = {'SiO2' : 0.5,
@@ -78,7 +78,7 @@ dict_cations_by_formula = {'SiO2' : 0.5,
                            'Y2O3' : 0.666667,
                            'BaO' : 1.0,
                            'Cl': 1.0,
-
+                            'F': 1.0,
                            }
 
 #!/usr/bin/env python
@@ -581,17 +581,17 @@ dict_cation_labels={'FeO': 'Fe2',
                     'Gd2O3':'Gd',
                     'BaO':'Ba',
                     'Cl':'Cl1',
-
+                    'F' : 'FF',
                     }
 
 
 list_cations_order = ['Si', 'Ti', 'Al', 'AlVI', 'AlIV', 'Fe3', 'Fe2', 'Mn', 'Mg', 'Ca', 'Na', 'K',
-                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','Cl1', 'SUMcat']
+                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','Cl1','FF', 'SUMcat']
 
 
 
 list_oxides_order = ['Sample', 'mineral', 'SiO2', 'TiO2', 'Al2O3', 'Fe2O3', 'FeO', 'MnO', 'MgO', 'CaO', 'Na2O', 'K2O',
-                'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','BaO','Cl','OxSum', 'OX']
+                'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','BaO','Cl','OxSum','FF', 'OX']
 
 
 
