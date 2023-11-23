@@ -273,20 +273,23 @@ def formula_from_oxides(mineral_Ox_dict):
 
     return dict_completo
 
-
 def sum_oxides(mineral_dict1):
     print("\nSUM starts here")
     #    global sum
     summa = 0
-
-    for oxides_value in mineral_dict1.values():
-        if type(oxides_value) == float:
+    dict_for_sum = {key: value for idx, (key,value) in enumerate(mineral_dict1.items()) if idx>=2}
+    #print("list_for_sum: ", list_for_sum)
+    #for oxides_value in mineral_dict1.values():
+    for oxides_value in dict_for_sum.values():
+        print("oxides_value in order?: ",oxides_value)
+        if type(float(oxides_value)) == float:
             #print("summa che?")
             summa = summa + oxides_value
             #print("somma = ", summa)
         #            print("Progressive Sum = %f") % summa
         else:
             print("not a digitaaa?? ", mineral_dict1.values())
+            print("TU! QUOQUE: ",oxides_value)
 
     print("Total Sum = %f" % summa)
     # global dict_mineral_Ox
