@@ -19,38 +19,42 @@ dict_molecular_weights = {'SiO2' : 60.08,
                      'MnO' : 70.94,
                      'Mn2O3' : 157.87,
                      'CaO' : 56.08,
-                          'Cr2O3' : 151.99,
-                          'ZnO' : 81.39,
-                          'P2O5' : 141.94,
-                          'SrO' : 103.62,
-                          'NiO' : 74.7094,
-                          'B2O3': 69.6202,
-                          'V2O3' : 149.8812,
-                          'Y2O3' : 225.81,
-                          'BaO': 153.33
-                          }
+                     'Cr2O3' : 151.99,
+                     'ZnO' : 81.39,
+                     'P2O5' : 141.94,
+                     'SrO' : 103.62,
+                     'NiO' : 74.7094,
+                     'B2O3': 69.6202,
+                     'V2O3' : 149.8812,
+                     'Y2O3' : 225.81,
+                     'BaO': 153.33, ##addede 11 sept 23
+                     'Cl': 35.450, ##added 22 Nov 23
+                     'F' : 18.9984032,
+                     }
 
 
-dict_oxydes_by_formula = {'SiO2' : 2,
-                     'Al2O3': 3 ,
-                     'FeO' : 1,
-                     'Na2O' : 1,
-                     'MgO' : 1,
-                     'Fe2O3' : 3,
-                     'K2O' : 1,
-                     'TiO2' : 2,
-                     'MnO' : 1,
-                     'Mn2O3' : 3,
-                     'CaO' : 1,
-                          'Cr2O3' : 3,
-                          'ZnO' : 1,
-                          'P2O5' : 5,
-                          'SrO' : 1,
-                          'NiO' : 1,
-                          'B2O3':3,
-                          'V2O3' : 3,
-                          'Y2O3' : 3,
-                          'BaO':1,
+dict_oxydes_by_formula = {'SiO2' : 2.0,
+                     'Al2O3': 3.0,
+                     'FeO' : 1.0,
+                     'Na2O' : 1.0,
+                     'MgO' : 1.0,
+                     'Fe2O3' : 3.0,
+                     'K2O' : 1.0,
+                     'TiO2' : 2.0,
+                     'MnO' : 1.0,
+                     'Mn2O3' : 3.0,
+                     'CaO' : 1.0,
+                          'Cr2O3' : 3.0,
+                          'ZnO' : 1.0,
+                          'P2O5' : 5.0,
+                          'SrO' : 1.0,
+                          'NiO' : 1.0,
+                          'B2O3':3.0,
+                          'V2O3' : 3.0,
+                          'Y2O3' : 3.0,
+                          'BaO': 1.0,
+                          'Cl' : 1.0,
+                         'F': 1.0,
                           }
 
 dict_cations_by_formula = {'SiO2' : 0.5,
@@ -59,7 +63,7 @@ dict_cations_by_formula = {'SiO2' : 0.5,
                      'Na2O' : 2.0,
                      'MgO' : 1.0,
                      'Fe2O3' : 0.666667,
-                     'K2O' : 2,
+                     'K2O' : 2.0,
                      'TiO2' : 0.5,
                      'MnO' : 1.0,
                      'Mn2O3' : 0.666667,
@@ -72,7 +76,9 @@ dict_cations_by_formula = {'SiO2' : 0.5,
                            'B2O3': 0.666667,
                            'V2O3' : 0.666667,
                            'Y2O3' : 0.666667,
-                           'BaO' :1
+                           'BaO' : 1.0,
+                           'Cl': 1.0,
+                            'F': 1.0,
                            }
 
 #!/usr/bin/env python
@@ -203,6 +209,10 @@ dict_mineral_oxigens = {
     "grt": 12,
 #pyroxene 3
     "px" : 6,
+#pyroxene 3
+    "cpx" : 6,
+#pyroxene 3
+    "opx" : 6,
 #allumosilicates 4
     "als" : 20,
 #biotite 5
@@ -293,27 +303,27 @@ dict_mineral_labels = {
 #garnet=['grt','Gt','gt','g','gr','GRT']
 
 #pyroxene
-    "px" : 'px',
-    "PX" : 'px',
-    "Px" : 'px',
-    "cpx" : 'px',
-    "CPX" : 'px',
-    "CPx" : 'px',
-    "pyroxene" : 'px',
-    "jd" : 'px',
-    "JD" : 'px',
-    "omp" : 'px',
-    "om" : 'px',
-    "omph" : 'px',
-    "acm" : 'px',
-    "aeg" : 'px',
-    "agt" : 'px',
-    "augite" : 'px',
-    "acmite" : 'px',
-    'OPX' : 'px' ,
-    'opx' : 'px',
-    'Opx' : 'px' ,
-    'OPx' : 'px',
+    "px" : 'cpx',
+    "PX" : 'cpx',
+    "Px" : 'cpx',
+    "cpx" : 'cpx',
+    "CPX" : 'cpx',
+    "CPx" : 'cpx',
+    "pyroxene" : 'cpx',
+    "jd" : 'cpx',
+    "JD" : 'cpx',
+    "omp" : 'cpx',
+    "om" : 'cpx',
+    "omph" : 'cpx',
+    "acm" : 'cpx',
+    "aeg" : 'cpx',
+    "agt" : 'cpx',
+    "augite" : 'cpx',
+    "acmite" : 'cpx',
+    'OPX' : 'opx' ,
+    'opx' : 'opx',
+    'Opx' : 'opx' ,
+    'OPx' : 'opx',
 #px=['px' , 'PX' , 'Px','CPX' , 'Cpx' , 'CPx', 'cpx', 'Jd' , 'jd' , 'JD' , 'OPX' ,'opx' ,'Opx' , 'OPx']
 
 #allumosilicates
@@ -573,16 +583,19 @@ dict_cation_labels={'FeO': 'Fe2',
                     'As2O5':'As',
                     'Dy2O5':'Dy',
                     'Gd2O3':'Gd',
-                    'BaO':'Ba',}
+                    'BaO':'Ba',
+                    'Cl':'Cl1',
+                    'F' : 'FF',
+                    }
 
 
 list_cations_order = ['Si', 'Ti', 'Al', 'AlVI', 'AlIV', 'Fe3', 'Fe2', 'Mn', 'Mg', 'Ca', 'Na', 'K',
-                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','SUMcat']
+                'Th','Pb','U','Cr','Zn','Ni','P','La','Y','Ce','Pr','As', 'Dy','Gd','Ba','Cl1','FF', 'SUMcat']
 
 
 
 list_oxides_order = ['Sample', 'mineral', 'SiO2', 'TiO2', 'Al2O3', 'Fe2O3', 'FeO', 'MnO', 'MgO', 'CaO', 'Na2O', 'K2O',
-                'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','BaO','OxSum', 'OX']
+                'Th2O3','PbO','UO2','Cr2O3','ZnO','NiO','P2O5','La2O3','Y2O3','Ce2O3','Pr2O3','As2O5', 'Dy2O5','Gd2O3','BaO','Cl','OxSum','FF', 'OX']
 
 
 
