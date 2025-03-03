@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt ###2 nov
 #from matplotlib import interactive ###2 nove
 import openpyxl
 import seaborn as sns
-plt.style.use('seaborn-whitegrid')
+#plt.style.use('seaborn')
 
 class dataset(object):
     '''
